@@ -9,25 +9,31 @@ void sieveoferasthones(int n){
     arr[i]=1;
     }
 
-  for(int i=0;i<=n;i+=2){
+  for(int i=4;i<=n;i+=2){
     arr[i]=0;
-    }
+  }
 
-    for(int i=3;i<=n;i+=2)
+    for(int i=3;i*i<=n;i+=2)
     {
         if(arr[i]){
-        for(int j=i*i;j<=n;j+=2*i){
-            arr[j]=0;        }
-            }
+        for(int j=i*i;j<=n;j+=i){
+            arr[j]=0;       
+             }
+        }
     }
 
     arr[0]=0;
     arr[1]=0;
 
+    for(int i=0;i<=n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+
     if(arr[n]==1){
-        cout<<"The number "<<n<<" is a Prime Number";
+        cout<<"Prime";
     }else{
-        cout<<"The number "<<n<<" is not a Prime Number";
+        cout<<"Not Prime";
     }
 }
 
