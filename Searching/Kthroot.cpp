@@ -2,7 +2,7 @@
 #define ll unsigned long long
 using namespace std;
 
-ll powerN(ll a,ll r){
+/* ll powerN(ll a,ll r){
     if(r==0)return 1;
     ll subprob = powerN(a,r/2);
     subprob = subprob*subprob;
@@ -10,7 +10,7 @@ ll powerN(ll a,ll r){
         return  a*subprob;
     }
     return subprob;
-}
+}*/
 
 ll kth_root(ll n,int k){
 
@@ -19,17 +19,17 @@ ll kth_root(ll n,int k){
 
     while(s<=l){
         mid = s + (l-s)/2;
-        val = powerN(mid,k);
-        if(val>n){
+        val = log10(mid);
+        if(k*val>log10(n)){
             l=mid-1;
         }
-        else if(val<n){
+        else if(k*val<=log10(n)){
             ans=mid;
             s=mid+1;
-        }else{
+        }/* else{
             ans=mid;
             break;
-        }
+        }*/
     }
 return ans;
 }
@@ -39,7 +39,7 @@ int main(){
     cin>>t;
     while(t--){
         cin>>n>>k;
-        cout<<kth_root(1000,1);
+        cout<<kth_root(n,k);
     }
     
 return 0;

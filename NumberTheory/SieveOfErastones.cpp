@@ -25,11 +25,6 @@ void sieveoferasthones(int n){
     arr[0]=0;
     arr[1]=0;
 
-    for(int i=0;i<=n;i++)
-    {
-        cout<<arr[i]<<" ";
-    }
-
     if(arr[n]==1){
         cout<<"Prime";
     }else{
