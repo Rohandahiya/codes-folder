@@ -30,4 +30,5 @@ for(int i=0;i<n;i++)
 cin>>input[i];
 }
 cout<<kadane(input,n);
+return 0;
 }

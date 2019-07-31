@@ -1,43 +1,38 @@
 #include<iostream>
 using namespace std;
 
-int num_codes(int *n,int siz,int *arr)
+int kadane(long long input[],int n)
 {
-    if(siz==0 || siz==1)
+    int current_sum=0;
+    int best_sum=0;
+    for(int i=0;i<n;i++)
     {
-        return 1;
+            current_sum+=input[i];
+            if(best_sum < current_sum)
+            {
+                best_sum=current_sum;
+            }
+            if(current_sum<0)
+            {
+            current_sum=0;
+        }
     }
-    if(arr[siz]>0)
-    {
-        return arr[siz];
-    }
-    int output=num_codes(n,siz-1,arr);
-    if(n[siz-2]*10+n[siz-1]<=26)
-    {
-    output+=num_codes(n,siz-2,arr);
-    }
-    arr[siz]==output;
-    return output;
-}
-
-int num_of_digits(long long num)
-{
-    int t=0;
-    while(num!=0)
-    {
-    num/=10;
-    ++t;
-    }
-    return t;
+    return best_sum;
 }
 
 int main()
 {
-    int *number=new int[10];
-    for(int i=0;i<10;i++)
-    {
-        cin>>number[i];
-    }
-    int *arr = new int[10];
-    cout<<num_codes(number,10,arr);
+int t;
+cin>>t;
+while(t--){
+int n;
+cin>>n;
+long long input[n];
+for(int i=0;i<n;i++)
+{
+cin>>input[i];
+}
+cout<<kadane(input,n);
+}
+return 0;
 }
